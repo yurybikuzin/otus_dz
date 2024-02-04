@@ -1,10 +1,8 @@
-// 1) Принимает мутабельную ссылку на кортеж и bool значение.
-//      - Если false, возвращает мутабельную ссылку на первый элемент кортежа.
-//      - Если true, возвращает мутабельную ссылку на второй элемент кортежа.
-#[derive(Debug)]
-pub struct Pair(f32, f32, f32);
+/// 1) Принимает мутабельную ссылку на кортеж и bool значение.
+///      - Если false, возвращает мутабельную ссылку на первый элемент кортежа.
+///      - Если true, возвращает мутабельную ссылку на второй элемент кортежа.
 
-pub fn mut_link_pair(pair: &mut Pair, a: bool) -> &mut f32 {
+pub fn mut_link_pair(pair: &mut (f32, f32), a: bool) -> &mut f32 {
     if a {
         &mut pair.1 as &mut f32
     } else {
@@ -18,7 +16,7 @@ mod tests {
 
     #[test]
     fn test_mut_link_pair() {
-        assert_eq!(mut_link_pair(&mut Pair(1.0, 3.0, 5.0), true), &mut 3.0);
-        assert_eq!(mut_link_pair(&mut Pair(1.0, 3.0, 5.0), false), &mut 1.0);
+        assert_eq!(mut_link_pair(&mut (1.0, 3.0), true), &mut 3.0);
+        assert_eq!(mut_link_pair(&mut (1.0, 3.0), false), &mut 1.0);
     }
 }
