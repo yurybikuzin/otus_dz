@@ -4,14 +4,12 @@ pub struct UnsignedCounter {
 }
 
 impl UnsignedCounter {
-    pub fn default_unsigned_counter(&self) -> usize {
-        0
+    pub fn default_unsigned_counter(&self) -> Self {
+        Self { num: 0 }
     }
 
-    pub fn next_unsigned(counter: &UnsignedCounter) -> Self {
-        Self {
-            num: counter.num + 1,
-        }
+    pub fn next_unsigned(&self) -> Self {
+        Self { num: &self.num + 1 }
     }
 }
 
@@ -22,7 +20,11 @@ mod tests {
     #[test]
     fn unsigned() {
         let test_num = UnsignedCounter { num: 18 };
-        assert_eq!(test_num.default_unsigned_counter(), 0);
+
+        assert_eq!(
+            test_num.default_unsigned_counter(),
+            UnsignedCounter { num: 0 }
+        );
         assert_eq!(
             UnsignedCounter::next_unsigned(&test_num),
             UnsignedCounter { num: 19 }
