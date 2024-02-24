@@ -21,8 +21,11 @@ mod tests {
     #[test]
     fn pair() {
         let test_pair = Pair(5, 7);
+
         assert_eq!(test_pair.default(), Pair(0, 0));
         assert_eq!(Pair::scalar_sum(&Pair(2, 4), Pair(2, 2)), 10);
+        assert_eq!(test_pair.scalar_sum(Pair(2, 2)), 16);
         assert_eq!(Pair::vector_sum(&Pair(2, 4), &Pair(2, 2)), Pair(4, 6));
+        assert_eq!(test_pair.vector_sum(&Pair(2, 2)), Pair(7, 9));
     }
 }

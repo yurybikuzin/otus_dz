@@ -30,9 +30,11 @@ mod tests {
             SignedCounter::next_signed(&test_num),
             SignedCounter { num: 5 }
         );
+        assert_eq!(test_num.next_signed(), SignedCounter { num: 5 });
         assert_eq!(
             SignedCounter::prev_signed(&test_num),
             SignedCounter { num: 3 }
         );
+        assert_eq!(test_num.prev_signed(), SignedCounter { num: 3 });
     }
 }

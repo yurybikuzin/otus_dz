@@ -29,5 +29,6 @@ mod tests {
             UnsignedCounter::next_unsigned(&test_num),
             UnsignedCounter { num: 19 }
         );
+        assert_eq!(test_num.next_unsigned(), UnsignedCounter { num: 19 });
     }
 }

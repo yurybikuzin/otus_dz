@@ -31,9 +31,13 @@ mod tests {
 
     #[test]
     fn vec3() {
+        let test_vec3 = Vec3([5; 3]);
+
         assert_eq!(Vec3::default_vec3(), Vec3([0; 3]));
         assert_eq!(Vec3::scalar_sum(&Vec3::default_vec3(), Vec3([2; 3])), 6);
         assert_eq!(Vec3::scalar_sum(&Vec3([5; 3]), Vec3([2; 3])), 21);
+        assert_eq!(test_vec3.scalar_sum(Vec3([2; 3])), 21);
         assert_eq!(Vec3::vector_sum(&Vec3([5; 3]), Vec3([2; 3])), Vec3([7; 3]));
+        assert_eq!(test_vec3.vector_sum(Vec3([2; 3])), Vec3([7; 3]));
     }
 }
